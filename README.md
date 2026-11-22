@@ -1,19 +1,18 @@
 # Yang–Mills Existence and Mass Gap — Lean 4 Formalization
 
-Formal verification of a 28-module Yang–Mills Existence and Mass Gap pipeline in **Lean 4 + Mathlib4**, uniting non-abelian compact gauge seats (`SU(2)` and `SU(3)`), multi-scale Balaban block-spin renormalization group (RG) control, Kotecký–Preiss (KP) corridor bounds, continuum Osterwalder–Schrader (OS) Hilbert-space reconstruction, and physical Hamiltonian spectral-gap exclusion.
+Formal verification of a 29-module Yang–Mills Existence and Mass Gap pipeline in **Lean 4 + Mathlib4**, uniting non-abelian compact gauge seats (`SU(2)` and `SU(3)`), multi-scale Balaban block-spin renormalization group (RG) control, Kotecký–Preiss (KP) corridor bounds, continuum Osterwalder–Schrader (OS) Hilbert-space reconstruction, and physical Hamiltonian spectral-gap exclusion with `hgap` discharged from connected OS4 clustering.
 
-## Verification Status (`v0.9-28-modules-verified`)
+## Verification Status (`v1.0-29-modules-verified`)
 
-* **Verified Modules:** 28 / 28 compiled cleanly (`lake build` — 5,729 jobs)
-* **Audited Theorems:** **108 theorems** in `YangMills/AxiomAudit.lean`
+* **Verified Modules:** 29 / 29 compiled cleanly (`lake build` — 5,731 jobs)
+* **Audited Theorems:** **113 theorems** in `YangMills/AxiomAudit.lean`
 * **Sorry Count:** **0** (`zero sorryAx` across the entire codebase)
 * **Trusted Axioms:** Standard Lean 4 kernel axioms only (`propext`, `Classical.choice`, `Quot.sound`)
+* **Top-Level Capstone:** `YangMills.yang_mills_master_discharged` (`YangMills/GapDischarge.lean`)
 
 ---
 
 ## Architecture Overview
-
-The pipeline is organized into four layers culminating in `YangMills.yang_mills_existence_and_mass_gap_master`:
 
 1. **Lattice Gauge Theory, Compact Seats & Reflection Positivity**
    * Concrete non-abelian compact groups `SU(2)` and `SU(3)` with bi-invariant Haar measures (`SU2CompactSeat`, `SU3CompactSeat`, `CompactGroupSeat`).
@@ -24,9 +23,9 @@ The pipeline is organized into four layers culminating in `YangMills.yang_mills_
 3. **Osterwalder–Schrader Reconstruction & Physical Transfer Matrix**
    * Pre-Hilbert OS quotient `V / 𝒩`, Cauchy–Schwarz null-space characterization, and Hilbert-space completion `PhysicalOSHilbertSpace` (`OSReconstruction`, `HilbertCompletion`, `OSHilbertSpace`).
    * Self-adjoint contraction transfer operator `T̂` (`H ≥ 0`), vacuum-orthogonal invariance (`Ω^⊥`), Rayleigh-quotient bounds, and spectral-gap exclusion `(0, m₀)` (`SpectralGapBridge`, `TransferMatrixGap`).
-4. **Continuum Weak Limit & Master Theorem**
+4. **Continuum Weak Limit, Master Theorem & Gap Discharge**
    * Pointwise weak-limit closure of OS1 invariance, OS2 reflection positivity, bilinearity, and uniform OS4 exponential clustering (`ContinuumOS`).
-   * Unified 9-part capstone theorem `yang_mills_existence_and_mass_gap_master` (`YangMillsMaster`).
+   * Unified capstone `yang_mills_existence_and_mass_gap_master` (`YangMillsMaster`) and continuous-extension discharge of `hgap` from connected OS4 clustering in `yang_mills_master_discharged` (`GapDischarge`).
 
 ---
 
@@ -35,10 +34,10 @@ The pipeline is organized into four layers culminating in `YangMills.yang_mills_
 Requires [elan](https://github.com/leanprover/elan) and Lean 4 (matching `lean-toolchain`).
 
 ```bash
-# 1. Build all 28 modules
+# 1. Build all 29 modules
 lake build
 
-# 2. Run the 108-theorem kernel axiom audit
+# 2. Run the 113-theorem kernel axiom audit
 lake env lean YangMills/AxiomAudit.lean
 ```
 
