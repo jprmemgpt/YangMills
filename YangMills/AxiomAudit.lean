@@ -1,3 +1,5 @@
+import YangMills.LatticeReflectionPositivity
+import YangMills.LatticeHaarMeasure
 import YangMills.MultiScaleRGStep
 import YangMills.SU3CompactSeat
 import YangMills.LargeFieldPeierls
@@ -113,3 +115,18 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 #print axioms YangMills.runningInvCoupling_strict_mono_uv
 #print axioms YangMills.multiscale_dyadic_beats_bridge_cap
 #print axioms YangMills.multiscale_balaban_to_hilbert_spectral_gap
+
+-- Module 23: LatticeHaarMeasure (Concrete N-Link Product Haar & Finite-Volume Wilson Measure)
+#print axioms YangMills.latticeHaar_map_gaugeTransform
+#print axioms YangMills.latticeHaar_integral_gauge_inv
+#print axioms YangMills.latticePartition_bounds
+#print axioms YangMills.latticeExpect_gauge_invariant
+#print axioms YangMills.su2LatticeHaar_gauge_invariant
+#print axioms YangMills.su3LatticeHaar_gauge_invariant
+
+-- Module 24: LatticeReflectionPositivity (Concrete Finite-Volume OS2 Reflection Positivity)
+#print axioms YangMills.lattice_os2_factorized_nonneg
+#print axioms YangMills.lattice_os2_bulk_crossing_nonneg
+#print axioms YangMills.lattice_os2_of_tendsto
+#print axioms YangMills.su2_lattice_os2_bulk_crossing_nonneg
+#print axioms YangMills.su3_lattice_os2_bulk_crossing_nonneg

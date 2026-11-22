@@ -20,3 +20,5 @@ import YangMills.BalabanBlockSpin
 import YangMills.LargeFieldPeierls
 import YangMills.SU3CompactSeat
 import YangMills.MultiScaleRGStep
+import YangMills.LatticeHaarMeasure
+import YangMills.LatticeReflectionPositivity
