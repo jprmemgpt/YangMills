@@ -8,6 +8,9 @@ import YangMills.GaugeLattice
 import YangMills.ClusterExpansion
 import YangMills.OsterwalderSchrader
 import YangMills.SU2Seat
+import YangMills.SU3Seat
+import YangMills.WilsonMeasure
+import YangMills.OSReconstruction
 
 /-!
 # AxiomAudit — Independent Lean 4 Kernel Axiom Certificate
@@ -37,3 +40,13 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 #print axioms YangMills.SU2.nonabelian
 #print axioms YangMills.su2_wilson_gauge_invariant
 #print axioms YangMills.su2_discrete_bianchi
+#print axioms YangMills.SU3.nonabelian
+#print axioms YangMills.su3_wilson_gauge_invariant
+#print axioms YangMills.su3_discrete_bianchi
+#print axioms YangMills.partitionFunction_pos
+#print axioms YangMills.wilsonExpect_gauge_invariant
+#print axioms YangMills.os_taylor_truncation_reflection_positive
+#print axioms YangMills.wilson_os2_reflection_positivity_of_limit
+#print axioms YangMills.osInner_eq_zero_iff
+#print axioms YangMills.os_transfer_contraction
+#print axioms YangMills.os_clustering_implies_transfer_gap

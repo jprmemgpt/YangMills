@@ -8,3 +8,6 @@ import YangMills.GaugeLattice
 import YangMills.ClusterExpansion
 import YangMills.OsterwalderSchrader
 import YangMills.SU2Seat
+import YangMills.SU3Seat
+import YangMills.WilsonMeasure
+import YangMills.OSReconstruction
