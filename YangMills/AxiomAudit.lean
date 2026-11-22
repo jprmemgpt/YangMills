@@ -1,3 +1,5 @@
+import YangMills.MultiScaleRGStep
+import YangMills.SU3CompactSeat
 import YangMills.LargeFieldPeierls
 import YangMills.BalabanBlockSpin
 import YangMills.SpectralGapBridge
@@ -97,3 +99,17 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 #print axioms YangMills.peierls_tail_sum_lt_bridge_cap
 #print axioms YangMills.balaban_peierls_implies_kp_corridor
 #print axioms YangMills.balaban_block_to_corridor_mass_gap
+
+-- Module 21: SU3CompactSeat (Concrete Compact SU(3) & Bi-Invariant Haar Measure)
+#print axioms YangMills.SU3.isCompact_range_mat
+#print axioms YangMills.su3Haar_integral_conj_inv
+#print axioms YangMills.su3Haar_wilson_plaquette_bounds
+#print axioms YangMills.su3Haar_wilson_plaquette_pos
+#print axioms YangMills.su3Haar_reflection_positive_square
+
+-- Module 22: MultiScaleRGStep (Iterated k-Step Block-Spin RG & Spectral Gap Bridge)
+#print axioms YangMills.iterBlockLink_gauge_covariant
+#print axioms YangMills.iterBlockLink_plaquette_gauge_invariant
+#print axioms YangMills.runningInvCoupling_strict_mono_uv
+#print axioms YangMills.multiscale_dyadic_beats_bridge_cap
+#print axioms YangMills.multiscale_balaban_to_hilbert_spectral_gap

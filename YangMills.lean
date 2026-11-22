@@ -18,3 +18,5 @@ import YangMills.CompactGroupSeat
 import YangMills.SpectralGapBridge
 import YangMills.BalabanBlockSpin
 import YangMills.LargeFieldPeierls
+import YangMills.SU3CompactSeat
+import YangMills.MultiScaleRGStep
