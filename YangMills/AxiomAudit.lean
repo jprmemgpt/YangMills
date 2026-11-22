@@ -1,3 +1,5 @@
+import YangMills.YangMillsMaster
+import YangMills.ContinuumOS
 import YangMills.TransferMatrixGap
 import YangMills.OSHilbertSpace
 import YangMills.LatticeReflectionPositivity
@@ -150,3 +152,17 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 #print axioms YangMills.LinearOSTransferSemigroup.physicalTransfer_vacuumOrthog_invariant
 #print axioms YangMills.LinearOSTransferSemigroup.quotientTransfer_clustering_norm_le
 #print axioms YangMills.LinearOSTransferSemigroup.physical_hamiltonian_mass_gap_exclusion
+
+-- Module 27: ContinuumOS (Continuum Weak-Limit Closure of OS1, OS2, OS4 & Transfer Mass Gap)
+#print axioms YangMills.continuum_os2_reflection_positivity
+#print axioms YangMills.continuum_os_symm
+#print axioms YangMills.continuum_os_add_left
+#print axioms YangMills.continuum_os_smul_left
+#print axioms YangMills.continuumOSBilinearSpace
+#print axioms YangMills.continuum_os1_invariance
+#print axioms YangMills.continuum_os4_clustering
+#print axioms YangMills.continuumTransferSemigroup
+#print axioms YangMills.continuum_transfer_mass_gap
+
+-- Module 28: YangMillsMaster (Unified 28-Module Existence & Mass Gap Capstone)
+#print axioms YangMills.yang_mills_existence_and_mass_gap_master
