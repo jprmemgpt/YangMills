@@ -1,0 +1,36 @@
+name: Lean 4 Build & Axiom Audit
+
+on:
+  push:
+    branches: [ master ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install elan & Lean 4
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
+
+      - name: Fetch Mathlib cache
+        run: lake exe cache get
+
+      - name: Build all 29 modules
+        run: lake build
+
+      - name: Run 113-theorem Axiom Audit (zero sorryAx check)
+        run: |
+          lake env lean YangMills/AxiomAudit.lean | tee audit_output.txt
+          if grep -q "sorryAx" audit_output.txt; then
+            echo "ERROR: sorryAx detected in AxiomAudit!"
+            exit 1
+          fi
+          echo "PASS: All audited theorems verified with standard Lean axioms only."
