@@ -1,3 +1,4 @@
+import YangMills.GapDischarge
 import YangMills.YangMillsMaster
 import YangMills.ContinuumOS
 import YangMills.TransferMatrixGap
@@ -166,3 +167,10 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 
 -- Module 28: YangMillsMaster (Unified 28-Module Existence & Mass Gap Capstone)
 #print axioms YangMills.yang_mills_existence_and_mass_gap_master
+
+-- Module 29: GapDischarge (Discharging hgap from Connected OS4 Clustering)
+#print axioms YangMills.vacOrthogProj_continuous
+#print axioms YangMills.vacOrthogProj_eq_self
+#print axioms YangMills.osMk_sub_smul_coe
+#print axioms YangMills.discharge_hgap_from_connected_os4
+#print axioms YangMills.yang_mills_master_discharged
