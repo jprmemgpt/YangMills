@@ -22,3 +22,5 @@ import YangMills.SU3CompactSeat
 import YangMills.MultiScaleRGStep
 import YangMills.LatticeHaarMeasure
 import YangMills.LatticeReflectionPositivity
+import YangMills.OSHilbertSpace
+import YangMills.TransferMatrixGap

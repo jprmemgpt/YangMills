@@ -1,3 +1,5 @@
+import YangMills.TransferMatrixGap
+import YangMills.OSHilbertSpace
 import YangMills.LatticeReflectionPositivity
 import YangMills.LatticeHaarMeasure
 import YangMills.MultiScaleRGStep
@@ -130,3 +132,21 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 #print axioms YangMills.lattice_os2_of_tendsto
 #print axioms YangMills.su2_lattice_os2_bulk_crossing_nonneg
 #print axioms YangMills.su3_lattice_os2_bulk_crossing_nonneg
+
+-- Module 25: OSHilbertSpace (Concrete Pre-Hilbert OS Quotient & Completed Physical Hilbert Space)
+#print axioms YangMills.LinearOSBilinearSpace.toOSBilinearSpace
+#print axioms YangMills.LinearOSBilinearSpace.ofReflectionFunctional
+#print axioms YangMills.osQuotient_norm_sq
+#print axioms YangMills.physicalOSHilbert_complete
+#print axioms YangMills.physicalOSHilbert_inner_mk
+#print axioms YangMills.physicalOSHilbert_norm_sq_mk
+
+-- Module 26: TransferMatrixGap (Physical Hilbert-Space Transfer Operator & Spectral Gap Exclusion)
+#print axioms YangMills.LinearOSTransferSemigroup.T1_preserves_osEquiv
+#print axioms YangMills.LinearOSTransferSemigroup.quotientTransferLinear_symm
+#print axioms YangMills.LinearOSTransferSemigroup.quotientTransferLinear_contraction
+#print axioms YangMills.LinearOSTransferSemigroup.physicalTransfer_symmetric
+#print axioms YangMills.LinearOSTransferSemigroup.physicalTransfer_contraction
+#print axioms YangMills.LinearOSTransferSemigroup.physicalTransfer_vacuumOrthog_invariant
+#print axioms YangMills.LinearOSTransferSemigroup.quotientTransfer_clustering_norm_le
+#print axioms YangMills.LinearOSTransferSemigroup.physical_hamiltonian_mass_gap_exclusion
