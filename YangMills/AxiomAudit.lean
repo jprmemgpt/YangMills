@@ -1,3 +1,5 @@
+import YangMills.LargeFieldPeierls
+import YangMills.BalabanBlockSpin
 import YangMills.SpectralGapBridge
 import YangMills.CompactGroupSeat
 import YangMills.Defs.CorridorConstants
@@ -81,3 +83,17 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 #print axioms YangMills.hilbert_no_eigenvalue_in_gap
 #print axioms YangMills.hilbert_hamiltonian_gap_exclusion
 #print axioms YangMills.corridor_to_hilbert_spectral_gap
+
+-- Module 19: BalabanBlockSpin (4D L-Block Transport, Axial Gauge & Small-Field Coercivity)
+#print axioms YangMills.blockLink_gauge_covariant
+#print axioms YangMills.blockLink_plaquette_gauge_invariant
+#print axioms YangMills.axial_gauge_trivializes_ray
+#print axioms YangMills.balaban_fluctuation_coercivity
+#print axioms YangMills.balaban_small_field_fluctuation_decay
+
+-- Module 20: LargeFieldPeierls (Large-Field Boltzmann Suppression & KP Corridor Entry)
+#print axioms YangMills.large_field_boltzmann_suppression
+#print axioms YangMills.peierls_tail_at_seven_lt_bridge_cap
+#print axioms YangMills.peierls_tail_sum_lt_bridge_cap
+#print axioms YangMills.balaban_peierls_implies_kp_corridor
+#print axioms YangMills.balaban_block_to_corridor_mass_gap

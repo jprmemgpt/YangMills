@@ -16,3 +16,5 @@ import YangMills.HaarMeasureSeat
 import YangMills.HilbertCompletion
 import YangMills.CompactGroupSeat
 import YangMills.SpectralGapBridge
+import YangMills.BalabanBlockSpin
+import YangMills.LargeFieldPeierls
