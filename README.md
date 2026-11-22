@@ -1,5 +1,7 @@
 # Yang–Mills Existence and Mass Gap — Lean 4 Formalization
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24451006.svg)](https://doi.org/10.5281/zenodo.24451006)
+
 Formal verification of a 29-module Yang–Mills Existence and Mass Gap pipeline in **Lean 4 + Mathlib4**, uniting non-abelian compact gauge seats (`SU(2)` and `SU(3)`), multi-scale Balaban block-spin renormalization group (RG) control, Kotecký–Preiss (KP) corridor bounds, continuum Osterwalder–Schrader (OS) Hilbert-space reconstruction, and physical Hamiltonian spectral-gap exclusion with `hgap` discharged from connected OS4 clustering.
 
 ## Verification Status (`v1.0-29-modules-verified`)
