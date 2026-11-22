@@ -14,3 +14,5 @@ import YangMills.OSReconstruction
 import YangMills.RGFlowBridge
 import YangMills.HaarMeasureSeat
 import YangMills.HilbertCompletion
+import YangMills.CompactGroupSeat
+import YangMills.SpectralGapBridge

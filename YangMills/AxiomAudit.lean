@@ -1,3 +1,5 @@
+import YangMills.SpectralGapBridge
+import YangMills.CompactGroupSeat
 import YangMills.Defs.CorridorConstants
 import YangMills.DiscreteGeometry
 import YangMills.HyperoctahedralSymmetry
@@ -66,3 +68,16 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 #print axioms YangMills.liftOperator_symmetric
 #print axioms YangMills.liftOperator_contraction
 #print axioms YangMills.hilbert_transfer_mass_gap_decay
+
+-- Module 17: CompactGroupSeat (Concrete SU(2) Topological Group & Bi-Invariant Haar Measure)
+#print axioms YangMills.su2Haar_integral_one
+#print axioms YangMills.su2Haar_integral_conj_inv
+#print axioms YangMills.su2Haar_wilson_plaquette_pos
+#print axioms YangMills.su2Haar_reflection_positive_square
+
+-- Module 18: SpectralGapBridge (Completed Hilbert-Space Spectral Gap Exclusion)
+#print axioms YangMills.vacuumOrthog_invariant
+#print axioms YangMills.hilbert_rayleigh_mass_gap
+#print axioms YangMills.hilbert_no_eigenvalue_in_gap
+#print axioms YangMills.hilbert_hamiltonian_gap_exclusion
+#print axioms YangMills.corridor_to_hilbert_spectral_gap
