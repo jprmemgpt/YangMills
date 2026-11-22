@@ -11,10 +11,13 @@ import YangMills.SU2Seat
 import YangMills.SU3Seat
 import YangMills.WilsonMeasure
 import YangMills.OSReconstruction
+import YangMills.RGFlowBridge
+import YangMills.HaarMeasureSeat
+import YangMills.HilbertCompletion
 
 /-!
-# AxiomAudit — Independent Lean 4 Kernel Axiom Certificate
-Prints the exact axioms used by every headline theorem across all 10 verified modules.
+# AxiomAudit — Independent Lean 4 Kernel Axiom Certificate (16 Modules)
+Prints the exact axioms used by every headline theorem across all 16 verified modules.
 A clean audit shows ONLY Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`)
 or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 -/
@@ -50,3 +53,16 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 #print axioms YangMills.osInner_eq_zero_iff
 #print axioms YangMills.os_transfer_contraction
 #print axioms YangMills.os_clustering_implies_transfer_gap
+#print axioms YangMills.ymBeta0_pos
+#print axioms YangMills.rg_one_loop_iteration
+#print axioms YangMills.dimensional_transmutation_identity
+#print axioms YangMills.yang_mills_corridor_mass_gap_pipeline
+#print axioms YangMills.su2_and_su3_seats_certified
+#print axioms YangMills.haar_integral_conj_inv
+#print axioms YangMills.haar_boltzmann_pos
+#print axioms YangMills.haar_factorized_kernel_reflection_positive
+#print axioms YangMills.haar_os2_reflection_positivity_of_tendsto
+#print axioms YangMills.hilbertCompletion_complete
+#print axioms YangMills.liftOperator_symmetric
+#print axioms YangMills.liftOperator_contraction
+#print axioms YangMills.hilbert_transfer_mass_gap_decay

@@ -11,3 +11,6 @@ import YangMills.SU2Seat
 import YangMills.SU3Seat
 import YangMills.WilsonMeasure
 import YangMills.OSReconstruction
+import YangMills.RGFlowBridge
+import YangMills.HaarMeasureSeat
+import YangMills.HilbertCompletion
