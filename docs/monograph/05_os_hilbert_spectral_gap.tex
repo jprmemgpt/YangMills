@@ -1,0 +1,19 @@
+\section{Completed Physical Hilbert Space and Full Spectral Gap Exclusion}
+\label{sec:ch5}
+
+Let $\mathcal{H} := \overline{E}$ be the uniform completion of a real pre-Hilbert space $E$, $\widehat{T} := \mathrm{liftOperator}(T)$ the continuous extension of a symmetric bounded operator $T : E \to_L E$, and $\Omega^\perp := \{\psi \in \mathcal{H} : \langle \Omega, \psi \rangle = 0\}$ (\texttt{VacuumOrthog}). If $\widehat{T}\Omega = \Omega$, then $\widehat{T}(\Omega^\perp) \subseteq \Omega^\perp$ (\texttt{vacuumOrthog\_invariant}).
+
+\begin{theorem}[Complete Spectral Gap Exclusion on $\mathcal{H}$, \texttt{SpectralGapBridge.lean}]
+\label{thm:spectral_exclusion}
+If $\psi \in \mathcal{H}$ satisfies $\|\widehat{T}\psi\| \le e^{-m_0}\|\psi\|$, then:
+\begin{enumerate}
+    \item $|\langle \psi, \widehat{T}\psi \rangle| \le e^{-m_0} \|\psi\|^2$ (\texttt{hilbert\_rayleigh\_mass\_gap}).
+    \item If $\psi \neq 0$ and $\widehat{T}\psi = \lambda \psi$, then $|\lambda| \le e^{-m_0}$ (\texttt{hilbert\_no\_eigenvalue\_in\_gap}).
+    \item For every $\lambda > e^{-m_0}$, $(\lambda - e^{-m_0})\|\psi\| \le \|\widehat{T}\psi - \lambda \psi\|$ (\texttt{hilbert\_no\_approx\_eigenstate\_in\_gap}).
+    \item For every energy $E_{\mathrm{val}} < m_0$, $e^{-E_{\mathrm{val}}} - e^{-m_0} > 0$ and $(e^{-E_{\mathrm{val}}} - e^{-m_0})\|\psi\| \le \|\widehat{T}\psi - e^{-E_{\mathrm{val}}}\psi\|$ (\texttt{hilbert\_hamiltonian\_gap\_exclusion}).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Cauchy--Schwarz. (2) Divide $|\lambda|\|\psi\| \le e^{-m_0}\|\psi\|$ by $\|\psi\| > 0$. (3) By the triangle inequality, $\lambda\|\psi\| = \|\lambda\psi\| \le \|\widehat{T}\psi - \lambda\psi\| + \|\widehat{T}\psi\| \le \|\widehat{T}\psi - \lambda\psi\| + e^{-m_0}\|\psi\|$. (4) Set $\lambda = e^{-E_{\mathrm{val}}} > e^{-m_0}$.
+\end{proof}

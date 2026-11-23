@@ -1,0 +1,33 @@
+\section{The Wilson Measure, Factorized Kernels, and Lattice Reflection Positivity}
+\label{sec:ch3}
+
+\subsection{Positive Factorized Kernels and Abstract Reflection Positivity}
+In \texttt{WilsonMeasure.lean}, a half-space configuration space $\alpha$ is equipped with a \emph{product half-expectation} (\texttt{ProductHalfExpectation}) $(E_{\mathrm{half}}, E_{\mathrm{prod}})$ satisfying linearity and $E_{\mathrm{prod}}((u, v) \mapsto f(u) g(v)) = E_{\mathrm{half}}(f) E_{\mathrm{half}}(g)$. A factorized kernel $K = [(c_1, f_1), \dots, (c_m, f_m)]$ is evaluated via $\mathcal{E}_K(u, v) := \sum_{i=1}^m c_i f_i(u) f_i(v)$ (\texttt{evalKernel}), and is nonnegative (\texttt{allNonneg}) when $c_i \ge 0$ for all $i$.
+
+\begin{theorem}[Factorized Kernel Reflection Positivity, \texttt{factorized\_kernel\_reflection\_positive}]
+\label{thm:abstract_rp}
+For any observables $F, S_+ : \alpha \to \R$ and any nonnegative factorized kernel $K$,
+\begin{equation}
+E_{\mathrm{prod}}\!\left((u, v) \mapsto F(u) F(v) \, e^{-S_+(u)} e^{-S_+(v)} \, \mathcal{E}_K(u, v)\right) \ge 0.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By list induction on $K$, each term $(c, f)$ contributes $c \cdot \big(E_{\mathrm{half}}(u \mapsto F(u) e^{-S_+(u)} f(u))\big)^2 \ge 0$.
+\end{proof}
+
+Because nonnegative factorized kernels are closed under addition, scaling, pointwise multiplication, powers, and $N$-th exponential Taylor truncations (\texttt{allNonneg\_expTrunc}), every finite Taylor truncation is reflection-positive (\texttt{os\_taylor\_truncation\_reflection\_positive}), and passing to the $N \to \infty$ limit with $Z > 0$ yields normalized lattice OS2 reflection positivity (\texttt{wilson\_os2\_reflection\_positivity\_of\_limit}).
+
+\subsection{Concrete Measure-Theoretic Instantiation}
+In \texttt{LatticeReflectionPositivity.lean}, this is instantiated on $(\mathrm{Fin}\,N \to G) \times (\mathrm{Fin}\,N \to G)$ with product Haar measure $d\mu_{\mathrm{half}} := d\mu^{\otimes N} \otimes d\mu^{\otimes N}$ (\texttt{halfSpaceHaar}).
+
+\begin{theorem}[Concrete Finite-Volume OS2 Reflection Positivity, \texttt{lattice\_os2\_bulk\_crossing\_nonneg}]
+Let $S_0 : G^N \to \R$ be a symmetric half-space bulk action, $\beta \in \R$, $F : G^N \to \R$, and $c_k \ge 0$ ($k \in \mathrm{Fin}\,M$) with $g_k(U) := F(U) e^{-\beta S_0(U)} w_k(U) \in L^1(\mu^{\otimes N})$. Then
+\begin{equation}
+\int_{G^N \times G^N} F(U_-) F(U_+) \, e^{-\beta S_0(U_-)} e^{-\beta S_0(U_+)} \left(\sum_{k=0}^{M-1} c_k \, w_k(U_-) w_k(U_+)\right) d\mu_{\mathrm{half}} \ge 0.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Fubini--Tonelli (\texttt{integral\_prod\_mul}), the integral equals $\sum_{k=0}^{M-1} c_k \left(\int_{G^N} g_k \, d\mu^{\otimes N}\right)^2 \ge 0$.
+\end{proof}

@@ -1,0 +1,76 @@
+
+/-- Continuous linear transfer operator `T₀ : LinearOSQuotient L →L[ℝ] LinearOSQuotient L`. -/
+noncomputable def quotientTransferOp (hb : UniformlyBounded G) :
+    LinearOSQuotient L →L[ℝ] LinearOSQuotient L :=
+  (quotientTransferLinear G).mkContinuous 1 (fun ψ => by
+    simpa using quotientTransferLinear_contraction G hb ψ)
+
+/-- The canonical physical transfer matrix `T̂` on the completed Osterwalder–Schrader
+    Hilbert space `PhysicalOSHilbertSpace L`. -/
+noncomputable def physicalTransferOp (hb : UniformlyBounded G) :
+    PhysicalOSHilbertSpace L → PhysicalOSHilbertSpace L :=
+  liftOperator (quotientTransferOp G hb)
+
+/-- `T̂` is self-adjoint (symmetric) on `PhysicalOSHilbertSpace L`. -/
+theorem physicalTransfer_symmetric (hb : UniformlyBounded G)
+    (ψ φ : PhysicalOSHilbertSpace L) :
+    inner ℝ (physicalTransferOp G hb ψ) φ = inner ℝ ψ (physicalTransferOp G hb φ) :=
+  liftOperator_symmetric (quotientTransferOp G hb) (quotientTransferLinear_symm G) ψ φ
+
+/-- `T̂` is a contraction (`‖T̂ ψ‖ ≤ ‖ψ‖`, i.e., `H ≥ 0`) on `PhysicalOSHilbertSpace L`. -/
+theorem physicalTransfer_contraction (hb : UniformlyBounded G)
+    (ψ : PhysicalOSHilbertSpace L) :
+    ‖physicalTransferOp G hb ψ‖ ≤ ‖ψ‖ :=
+  liftOperator_contraction (quotientTransferOp G hb) (quotientTransferLinear_contraction G hb) ψ
+
+/-- `T̂` leaves the vacuum-orthogonal subspace `Ω^⊥` invariant whenever `T̂ Ω = Ω`. -/
+theorem physicalTransfer_vacuumOrthog_invariant (hb : UniformlyBounded G)
+    (Ω : PhysicalOSHilbertSpace L) (hvac : physicalTransferOp G hb Ω = Ω)
+    (ψ : PhysicalOSHilbertSpace L) (hψ : ψ ∈ VacuumOrthog Ω) :
+    physicalTransferOp G hb ψ ∈ VacuumOrthog Ω :=
+  vacuumOrthog_invariant (quotientTransferOp G hb) (quotientTransferLinear_symm G) Ω hvac ψ hψ
+
+/-- Mass-gap norm bound on the pre-Hilbert quotient for any observable satisfying OS4
+    exponential clustering `B(T^n x, T^n x) ≤ C exp(-2 m₀ n)`. -/
+theorem quotientTransfer_clustering_norm_le (hb : UniformlyBounded G) (m0 : ℝ)
+    (x : V) (C : ℝ) (hC : 0 ≤ C)
+    (hclust : ∀ n : ℕ, L.B (G.T n x) (G.T n x) ≤ C * Real.exp (-2 * m0 * (n : ℝ))) :
+    ‖quotientTransferOp G hb (Quotient.mk (osSpace L).osSetoid x)‖ ≤
+      Real.exp (-m0) * ‖(Quotient.mk (osSpace L).osSetoid x : LinearOSQuotient L)‖ := by
+  have hsq :
+      ‖quotientTransferOp G hb (Quotient.mk (osSpace L).osSetoid x)‖ ^ 2 ≤
+        Real.exp (-2 * m0) *
+          ‖(Quotient.mk (osSpace L).osSetoid x : LinearOSQuotient L)‖ ^ 2 := by
+    rw [osQuotient_norm_sq, osQuotient_norm_sq]
+    exact os_clustering_implies_transfer_gap G.toOSTransferSemigroup x C m0 hC hclust
+  have hrhs_nonneg :
+      0 ≤ Real.exp (-m0) * ‖(Quotient.mk (osSpace L).osSetoid x : LinearOSQuotient L)‖ :=
+    mul_nonneg (le_of_lt (Real.exp_pos _)) (norm_nonneg _)
+  have hsq_rhs :
+      (Real.exp (-m0) * ‖(Quotient.mk (osSpace L).osSetoid x : LinearOSQuotient L)‖) ^ 2 =
+        Real.exp (-2 * m0) * ‖(Quotient.mk (osSpace L).osSetoid x : LinearOSQuotient L)‖ ^ 2 := by
+    rw [mul_pow, ← Real.exp_natCast_mul]
+    congr 1; congr 1; push_cast; ring
+  have hle :
+      ‖quotientTransferOp G hb (Quotient.mk (osSpace L).osSetoid x)‖ ^ 2 ≤
+        (Real.exp (-m0) * ‖(Quotient.mk (osSpace L).osSetoid x : LinearOSQuotient L)‖) ^ 2 := by
+    rw [hsq_rhs]
+    exact hsq
+  nlinarith [norm_nonneg (quotientTransferOp G hb (Quotient.mk (osSpace L).osSetoid x)), hrhs_nonneg]
+
+/-- Physical Hamiltonian spectral-gap exclusion on `PhysicalOSHilbertSpace L`:
+    no energy `E < m₀` can lie in the spectrum of the physical Hamiltonian `H` on `Ω^⊥`. -/
+theorem physical_hamiltonian_mass_gap_exclusion (hb : UniformlyBounded G)
+    (Ω : PhysicalOSHilbertSpace L)
+    (m0 E : ℝ) (hE_lt : E < m0)
+    (hgap : ∀ ψ ∈ VacuumOrthog Ω, ‖physicalTransferOp G hb ψ‖ ≤ Real.exp (-m0) * ‖ψ‖)
+    (ψ : PhysicalOSHilbertSpace L) (hψ : ψ ∈ VacuumOrthog Ω) :
+    (Real.exp (-E) - Real.exp (-m0)) * ‖ψ‖ ≤
+      ‖physicalTransferOp G hb ψ - Real.exp (-E) • ψ‖ :=
+  hilbert_hamiltonian_gap_exclusion (quotientTransferOp G hb) m0 E hE_lt ψ (hgap ψ hψ)
+
+end LinearOSTransferSemigroup
+
+end PhysicalTransferMatrix
+
+end YangMills

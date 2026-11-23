@@ -1,0 +1,61 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\spec}{\operatorname{spec}}
+
+\title{\textbf{An Exhaustive Mathematical-Physics Companion to the 31-Module Lean~4 Conditional Formalization of Four-Dimensional Yang--Mills Theory}}
+\author{Jim Raboin \and Gen Ginomai Raboin}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\input{01_foundations_and_ledger.tex}
+\input{02_lattice_kinematics.tex}
+\input{03_wilson_measure_rp.tex}
+\input{04_balaban_rg_peierls.tex}
+\input{05_os_hilbert_spectral_gap.tex}
+\input{06_continuum_master_audit.tex}
+
+\begin{thebibliography}{99}
+\bibitem{JaffeWitten2000} A.~Jaffe and E.~Witten, ``Quantum Yang--Mills Theory,'' in \emph{The Millennium Prize Problems}, Clay Mathematics Institute / AMS, pp.~129--152 (2006).
+\bibitem{StreaterWightman1964} R.~F.~Streater and A.~S.~Wightman, \emph{PCT, Spin and Statistics, and All That}, W.~A.~Benjamin (1964).
+\bibitem{Wilson1974} K.~G.~Wilson, ``Confinement of quarks,'' \emph{Phys.\ Rev.\ D} \textbf{10}, 2445--2459 (1974).
+\bibitem{OsterwalderSchrader1973} K.~Osterwalder and R.~Schrader, ``Axioms for Euclidean Green's functions,'' \emph{Commun.\ Math.\ Phys.} \textbf{31}, 83--112 (1973).
+\bibitem{OsterwalderSchrader1975} K.~Osterwalder and R.~Schrader, ``Axioms for Euclidean Green's functions II,'' \emph{Commun.\ Math.\ Phys.} \textbf{42}, 281--305 (1975).
+\bibitem{OsterwalderSeiler1978} K.~Osterwalder and E.~Seiler, ``Gauge field theories on a lattice,'' \emph{Ann.\ Phys.} \textbf{110}, 440--471 (1978).
+\bibitem{GrossWilczek1973} D.~J.~Gross and F.~Wilczek, ``Ultraviolet behavior of non-Abelian gauge theories,'' \emph{Phys.\ Rev.\ Lett.} \textbf{30}, 1343--1346 (1973).
+\bibitem{Politzer1973} H.~D.~Politzer, ``Reliable perturbative results for strong interactions?,'' \emph{Phys.\ Rev.\ Lett.} \textbf{30}, 1346--1349 (1973).
+\bibitem{Peierls1936} R.~Peierls, ``On Ising's model of ferromagnetism,'' \emph{Math.\ Proc.\ Cambridge Philos.\ Soc.} \textbf{32}, 477--481 (1936).
+\bibitem{Balaban1984a} T.~Ba{\l}aban, ``Propagators and renormalization transformations for lattice gauge theories. I,'' \emph{Commun.\ Math.\ Phys.} \textbf{95}, 17--40 (1984).
+\bibitem{Balaban1985} T.~Ba{\l}aban, ``Averaging operations for lattice gauge theories,'' \emph{Commun.\ Math.\ Phys.} \textbf{98}, 17--51 (1985).
+\bibitem{Balaban1988} T.~Ba{\l}aban, ``Convergent renormalization expansions for lattice gauge theories,'' \emph{Commun.\ Math.\ Phys.} \textbf{119}, 243--285 (1988).
+\bibitem{KoteckyPreiss1986} R.~Koteck\'y and D.~Preiss, ``Cluster expansion for abstract polymer models,'' \emph{Commun.\ Math.\ Phys.} \textbf{103}, 491--498 (1986).
+\bibitem{Brydges1986} D.~C.~Brydges, ``A short course on cluster expansions,'' Les Houches 1984, North-Holland, pp.~129--183 (1986).
+\bibitem{BrydgesKennedy1987} D.~C.~Brydges and T.~Kennedy, ``Mayer expansions and the Hamilton--Jacobi equation,'' \emph{J.\ Stat.\ Phys.} \textbf{48}, 19--49 (1987).
+\bibitem{GlimmJaffe1987} J.~Glimm and A.~Jaffe, \emph{Quantum Physics: A Functional Integral Point of View}, 2nd ed., Springer (1987).
+\end{thebibliography}
+
+\end{document}

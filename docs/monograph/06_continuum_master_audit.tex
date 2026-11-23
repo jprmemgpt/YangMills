@@ -1,0 +1,23 @@
+\section{Continuum Reconstruction, Master Capstone Theorem, and Audit Trail}
+\label{sec:ch6}
+
+\begin{theorem}[Unified Yang--Mills Existence and Mass Gap Master Theorem, \texttt{yang\_mills\_existence\_and\_mass\_gap\_master}]
+\label{thm:master}
+Given a sequence $(L_n)_{n \ge 0}$ of finite-volume linear OS2 reflection-positive spaces converging pointwise to $B_\infty$ with a uniformly bounded symmetric time-translation semigroup $T_t$, multiscale Balaban block-spin parameters $L \ge 3$, $K \in \mathbb{N}$, $\kappa_0 \ge \frac{61516}{10000}$, $b_0, g_*^2, \Lambda_{\mathrm{RG}} > 0$, dyadic polymer increments $0 \le \delta_j \le a_0 (1/4)^j$ with $a_0 \le \frac{3}{4} e^{-L^2}/(1 - e^{-1})$, a continuum vacuum $\Omega$ fixed by $\widehat{T}_c$, and corridor contraction $\|\widehat{T}_c \psi\| \le e^{-m_0}\|\psi\|$ on $\Omega^\perp$, then all ten headline conclusions hold simultaneously:
+(i)--(ii) $SU(2)$ and $SU(3)$ are non-Abelian;
+(iii) $\lambda_{\min}(L) > 0$;
+(iv) $\sum_{j=0}^{K-1} \delta_j$ satisfies \texttt{InKPCorridor} uniformly in $K$;
+(v) $m_0 > 0$;
+(vi) $\mathcal{H}_c$ is a complete Hilbert space;
+(vii)--(viii) $\widehat{T}_c$ is a self-adjoint contraction ($H \ge 0$);
+(ix) $\widehat{T}_c(\Omega^\perp) \subseteq \Omega^\perp$;
+(x) $(e^{-E} - e^{-m_0})\|\psi\| \le \|\widehat{T}_c \psi - e^{-E}\psi\|$ for all $E < m_0$ and $\psi \in \Omega^\perp$.
+\end{theorem}
+
+\subsection{Machine-Check Reproduction Protocol}
+\begin{verbatim}
+git clone https://github.com/jprmemgpt/YangMills.git
+cd YangMills
+lake build
+lake env lean YangMills/AxiomAudit.lean
+\end{verbatim}

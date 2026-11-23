@@ -1,0 +1,41 @@
+\section{Four-Dimensional Lattice Kinematics, Gauge Covariance, and Invariant G1}
+\label{sec:ch2}
+
+\subsection{Hypercubic Lattice Geometry and Commuting Shifts}
+In \texttt{GaugeLattice.lean}, the four-dimensional Euclidean hypercubic lattice is modeled as $\Lambda = \Z^4$ with sites $x : \mathrm{Fin}\,4 \to \Z$ (\texttt{Site}). For each coordinate direction $\mu \in \{0, 1, 2, 3\}$, the unit shift operator $s_\mu : \Lambda \to \Lambda$ (\texttt{step}) is defined by $(s_\mu x)_\alpha := x_\alpha + 1$ if $\alpha = \mu$ and $x_\alpha$ otherwise.
+
+\begin{lemma}[Commutativity of Lattice Shifts, \texttt{step\_comm}]
+For every site $x \in \Lambda$ and directions $\mu, \nu \in \mathrm{Fin}\,4$, $s_\nu(s_\mu(x)) = s_\mu(s_\nu(x))$.
+\end{lemma}
+
+\subsection{Gauge Configurations, Local Gauge Action, and Plaquette Holonomies}
+Let $G$ be any group. A \emph{lattice gauge field} (\texttt{GaugeField}) is a map $U : \Lambda \times \mathrm{Fin}\,4 \to G$. A \emph{local gauge transformation} (\texttt{GaugeTransform}) is a map $g : \Lambda \to G$ acting via $(g \cdot U)_\mu(x) := g(x) \, U_\mu(x) \, g(s_\mu x)^{-1}$ (\texttt{gaugeAct}).
+
+For any site $x \in \Lambda$ and directions $\mu, \nu \in \mathrm{Fin}\,4$, the \emph{oriented plaquette holonomy} (\texttt{plaquette}) is
+\begin{equation}
+U_{\mu\nu}(x) := U_\mu(x) \, U_\nu(s_\mu x) \, U_\mu(s_\nu x)^{-1} \, U_\nu(x)^{-1}.
+\end{equation}
+
+\begin{theorem}[Exact Non-Abelian Plaquette Gauge Covariance, \texttt{plaquette\_gauge\_covariant}]
+\label{thm:plaquette_covariant}
+For every group $G$, gauge transformation $g$, configuration $U$, site $x \in \Lambda$, and directions $\mu, \nu \in \mathrm{Fin}\,4$,
+\begin{equation}
+(g \cdot U)_{\mu\nu}(x) = g(x) \, U_{\mu\nu}(x) \, g(x)^{-1}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Expanding the four factors of $(g \cdot U)_{\mu\nu}(x)$ and using $s_\nu(s_\mu x) = s_\mu(s_\nu x)$ cancels every interior factor $g(\cdot)^{-1} g(\cdot)$, leaving $g(x) U_{\mu\nu}(x) g(x)^{-1}$.
+\end{proof}
+
+\subsection{Unitary Trace Characters, Wilson Action, and Invariant G1}
+In \texttt{GaugeLattice.lean}, a normalized real unitary trace character (\texttt{UnitaryTrace}) is a map $\chi : G \to \R$ satisfying $\chi(g u g^{-1}) = \chi(u)$, $-1 \le \chi(u) \le 1$, and $\chi(1_G) = 1$. For $\beta \in \R$, the local Wilson plaquette action density (\texttt{wilsonPlaquetteAction}) is $S_p(U; x, \mu, \nu) := \beta \big(1 - \chi(U_{\mu\nu}(x))\big)$.
+
+\begin{theorem}[Local Gauge Invariance and Invariant G1, \texttt{GaugeLattice.lean}]
+For every group $G$ equipped with a unitary trace $\chi$:
+\begin{enumerate}
+    \item $S_p(g \cdot U; x, \mu, \nu) = S_p(U; x, \mu, \nu)$ (\texttt{wilsonPlaquetteAction\_gauge\_invariant}).
+    \item $0 \le 1 - \chi(u) \le 2$ for every $u \in G$ (\texttt{compact\_fiber\_exhaustion}).
+    \item For $\beta \ge 0$, $0 \le S_p(U; x, \mu, \nu) \le 2\beta$ (\texttt{wilsonPlaquetteAction\_bounds}).
+\end{enumerate}
+\end{theorem}

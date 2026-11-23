@@ -1,0 +1,28 @@
+\section{Balaban Block-Spin Coercivity, Large-Field Peierls Suppression, and KP Corridor Entry}
+\label{sec:ch4}
+
+\subsection{4D Discrete Neumann Coercivity of Small-Field Fluctuations}
+On a 4D block of side length $L \ge 2$, let $\|c\|_2^2 := \sum_{k \in (\mathrm{Fin}\,L)^4} c(k)^2$ (\texttt{fluctuationNormSq}) and $\langle c, (-\Delta_N) c \rangle := \sum_{k \in (\mathrm{Fin}\,L)^4} \lambda_L(k) c(k)^2$ (\texttt{neumannQuadraticForm}), with $\lambda_{\min}(L) := 4\sin^2(\frac{\pi}{2L})$ (\texttt{neumannGapFloor}).
+
+\begin{theorem}[Balaban Small-Field Fluctuation Coercivity, \texttt{balaban\_fluctuation\_coercivity}, \texttt{balaban\_small\_field\_fluctuation\_decay}]
+\label{thm:balaban_coercivity}
+For $L \ge 2$ and any zero-block-average fluctuation field $c$ ($c(0,0,0,0) = 0$), $\lambda_{\min}(L) > 0$, $\lambda_{\min}(L)\|c\|_2^2 \le \langle c, (-\Delta_N) c \rangle$, and for all $\beta \ge 0$,
+\begin{equation}
+\exp\!\big(-\beta \langle c, (-\Delta_N) c \rangle\big) \le \exp\!\big(-\beta \lambda_{\min}(L) \|c\|_2^2\big).
+\end{equation}
+\end{theorem}
+
+\subsection{Large-Field Peierls Suppression and Certified Bridge Ceiling}
+In \texttt{LargeFieldPeierls.lean}, any finite polymer $S$ of large-field plaquettes ($1 - \chi(U_p) > p_{\mathrm{thresh}}$) obeys $\sum_{p \in S} S_p(U) \ge \beta p_{\mathrm{thresh}} |S|$ and $\exp(-\sum_{p \in S} S_p(U)) \le \exp(-\beta p_{\mathrm{thresh}} |S|)$ (\texttt{large\_field\_boltzmann\_suppression}).
+
+\begin{theorem}[Peierls Tail Beats $1/567$, \texttt{peierls\_tail\_at\_seven\_lt\_bridge\_cap}, \texttt{peierls\_envelope\_lt\_bridge\_cap}]
+\label{thm:peierls_beats_567}
+For every minimal large-field polymer area $A_0 \ge 7$ and every finite truncation $n \in \mathbb{N}$,
+\begin{equation}
+\sum_{k=0}^{n-1} e^{-(A_0 + k)} \le \frac{e^{-A_0}}{1 - e^{-1}} \le \frac{e^{-7}}{1 - e^{-1}} < \frac{1}{567}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Using $e > (21/20)^{20} > 2653/1000$ (\texttt{exp\_one\_gt\_2653\_div\_1000}), we obtain $e^6(e - 1) > (2653/1000)^6 (1653/1000) > 567$, which is equivalent to $e^{-7}/(1 - e^{-1}) < 1/567$.
+\end{proof}
