@@ -1,3 +1,5 @@
+import YangMills.CosetPairing
+import YangMills.HomologyFloor
 import YangMills.GapDischarge
 import YangMills.YangMillsMaster
 import YangMills.ContinuumOS
@@ -174,3 +176,10 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 #print axioms YangMills.osMk_sub_smul_coe
 #print axioms YangMills.discharge_hgap_from_connected_os4
 #print axioms YangMills.yang_mills_master_discharged
+
+#print axioms YangMills.DualBook.coset_pairing_doubled
+#print axioms YangMills.DualBook.coset_pairing_transversal
+#print axioms YangMills.DualBook.homologyFloor_num_geom_sum
+#print axioms YangMills.DualBook.homologyFloor_eq_one_sub
+#print axioms YangMills.DualBook.homologyFloor_bounds
+#print axioms YangMills.DualBook.homologyFloor_mono
