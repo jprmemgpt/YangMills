@@ -1,3 +1,4 @@
+import YangMills.Z2TransferMatrix
 import YangMills.CosetPairing
 import YangMills.HomologyFloor
 import YangMills.GapDischarge
@@ -183,3 +184,7 @@ or a subset thereof, with ZERO `sorryAx` and ZERO custom axioms.
 #print axioms YangMills.DualBook.homologyFloor_eq_one_sub
 #print axioms YangMills.DualBook.homologyFloor_bounds
 #print axioms YangMills.DualBook.homologyFloor_mono
+
+#print axioms YangMills.DualBook.z2_transfer_trace_factorization
+#print axioms YangMills.DualBook.kwDual_involutive
+#print axioms YangMills.DualBook.kramers_wannier_sinh_duality
