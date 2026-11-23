@@ -44,3 +44,17 @@ lake env lean YangMills/AxiomAudit.lean
 ```
 
 Every audited declaration in `YangMills/AxiomAudit.lean` prints only standard Lean axioms (`[propext, Classical.choice, Quot.sound]`) with no `sorryAx` or custom axioms.
+
+---
+
+## v1.3 Update — Bucket B Dual-Book Modules (`YangMills.DualBook`)
+
+Extends the verified formalization chain with three exact finite-algebra modules from the R69 dual-side $\mathbb{Z}_2$ scaffold book, all compiled under `lake build` and audited in `YangMills/AxiomAudit.lean` with zero `sorryAx` and zero custom axioms:
+
+| Rung | Module | Tier | Audited Theorems (`[propext, Classical.choice, Quot.sound]`) |
+| :--- | :--- | :--- | :--- |
+| **1** | `YangMills/CosetPairing.lean` | `EXACT-FINITE-ALGEBRA` | `coset_pairing_doubled`, `coset_pairing_transversal` |
+| **2** | `YangMills/HomologyFloor.lean` | `EXACT-FINITE-ALGEBRA` | `homologyFloor_num_geom_sum`, `homologyFloor_eq_one_sub`, `homologyFloor_bounds`, `homologyFloor_mono` |
+| **3** | `YangMills/Z2TransferMatrix.lean` | `CERTIFIED-IDENTITY` | `z2_transfer_trace_factorization`, `kwDual_involutive`, `kramers_wannier_sinh_duality` |
+
+**Scope Note:** These modules certify exact finite-group, geometric-series, and transfer-matrix identities on the dual-side scaffold. They make no claim regarding physical 4D continuum Yang–Mills theory and leave all open continuum hypothesis families explicit and untouched.
