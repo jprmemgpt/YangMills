@@ -32,3 +32,9 @@ import YangMills.CosetPairing
 import YangMills.HomologyFloor
 
 import YangMills.Z2TransferMatrix
+
+import YangMills.DualBook.ThetaConstants
+import YangMills.DualBook.DualBookAssembly
+import YangMills.DualBook.FrullaniBook
+import YangMills.DualBook.CatalanGate
+import YangMills.DualBook.DualBookAudit
