@@ -481,7 +481,7 @@ private theorem thetaFour_eq_tsumInt {t : ℝ} (ht : 0 < t) :
       (-1 : ℝ) ^ z * Real.exp (-Real.pi * t * ((z : ℝ)) ^ 2)) := by
     intro z
     show (-1 : ℝ) ^ (-z) * Real.exp (-Real.pi * t * ((-z : ℤ) : ℝ) ^ 2)
-        = (-1 : ℝ) ^ z * Real.exp (-Real.pi * t * ((z : ℝ) ^ 2)
+        = (-1 : ℝ) ^ z * Real.exp (-Real.pi * t * ((z : ℝ)) ^ 2)
     have hsign : (-1 : ℝ) ^ (-z) = (-1 : ℝ) ^ z := by
       rw [zpow_neg]
       rcases neg_one_zpow_eq_or z with h | h
@@ -662,7 +662,7 @@ private theorem exp_neg_le_inv_sq {y : ℝ} (hy : 0 < y) :
     exact sq_le_sq' (by linarith) (by linarith)
   have h4 : (Real.exp (y/2)) ^ 2 = Real.exp y := by
     rw [sq, ← Real.exp_add]
-    ring
+    congr 1; ring
   have h5 : (y/2) ^ 2 * Real.exp (-y) ≤ 1 := by
     have h6 : (y/2) ^ 2 * Real.exp (-y) ≤ Real.exp y * Real.exp (-y) :=
       mul_le_mul_of_nonneg_right (h3.trans_eq h4) (Real.exp_pos _).le
